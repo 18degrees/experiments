@@ -1,0 +1,52 @@
+@use 'variables';
+
+@mixin techBtn($hovered: false) {
+    @if $hovered {
+        border: 1px solid variables.$primary-background;
+        background-color: white;
+        color: variables.$primary-background;
+    } @else {
+        border: 1px solid white;
+        background-color: inherit;
+    }
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    padding-top: 20vh;
+    margin: 0 auto 30px;
+
+    div {
+        width: fit-content;
+        margin: 0 auto 30vh auto;
+        width: 300px;
+    }
+
+    > p {
+        line-height: 30px;
+    }
+    .techname {
+        font-size: 78px;
+        width: 280px;
+        text-align: right;
+    }
+    button {
+        @include techBtn(false);
+        display: block;
+        margin-top: 30px;
+        padding: 6px 15px;
+        cursor: pointer;
+        transition: all .3s;
+
+        &:hover {
+            @include techBtn(true);
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        div {
+            margin: 0 auto 15vh auto;
+        }
+    }
+}
